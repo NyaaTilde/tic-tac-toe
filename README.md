@@ -58,7 +58,7 @@ The environment variable RAILS_ENV should be set to either 'production' or
 'development'. How to set environment variables is dependant on your deployment
 method.
 
-    $ extern RAILS_ENV='production'
+    $ export RAILS_ENV='production'
 
 Database Configuration
 ----------------------

@@ -11,6 +11,7 @@ env:
 
 before_script:
   - psql -c 'CREATE DATABASE test;' -U postgres
+  - "echo 'test: { secret_key_base: '$(bundle exec rake secret)' }' > config/secrets.yml"
 
 notifications:
   irc:

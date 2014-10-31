@@ -9,6 +9,9 @@ addons:
 env:
   - TEST_DATABASE_URL='postgresql://postgres@localhost/test'
 
+before_script:
+  - psql -c 'CREATE DATABASE test;' -U postgres
+
 notifications:
   irc:
     channels:

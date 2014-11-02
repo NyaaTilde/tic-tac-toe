@@ -151,11 +151,13 @@ Deployment to the staging server is only a single command away. The Rake task
 executes all the necessary steps for deployment.
 
     $ rake deploy_staging
+    $ rake deploy:staging_migrations
 
 Once the acceptance tests are complete and succesful, you're ready to deploy to
 production.
 
     $ rake deploy_production
+    $ rake deploy:production_migrations
 
 When something goes wrong!
 --------------------------

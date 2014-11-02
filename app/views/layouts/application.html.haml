@@ -19,7 +19,7 @@
 
 
   %body
-    .navbar.navbar-default.navbar-static-top
+    .navbar.navbar-default.navbar-static-top(role="navigation")
       .container
         %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
           %span.icon-bar
@@ -32,6 +32,8 @@
             %li= link_to "Link 2", "/path2"
             %li= link_to "Link 3", "/path3"
             %li= link_to "Link 3", "/path3"
+
+    = yield :jumbotron
 
     .container
       .row

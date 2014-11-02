@@ -57,4 +57,7 @@ end
 
 group :test do
   gem 'rake'
+
+  # Code Coverage Analysis
+  gem 'simplecov'
 end

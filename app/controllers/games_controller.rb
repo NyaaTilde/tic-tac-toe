@@ -2,13 +2,11 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
 
   # GET /games
-  # GET /games.json
   def index
     @games = Game.all
   end
 
   # GET /games/1
-  # GET /games/1.json
   def show
   end
 
@@ -18,7 +16,6 @@ class GamesController < ApplicationController
   end
 
   # POST /games
-  # POST /games.json
   def create
     @game = Game.new(game_params)
     @game.status = 1
@@ -26,16 +23,13 @@ class GamesController < ApplicationController
     respond_to do |format|
       if @game.save
         format.html { redirect_to @game, notice: 'Game was successfully created.' }
-        format.json { render :show, status: :created, location: @game }
       else
         format.html { render :new }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /games/1
-  # PATCH/PUT /games/1.json
   def update
     if @game.status == 1
       if not Game.playable(@game[params[:play]])
@@ -61,12 +55,10 @@ class GamesController < ApplicationController
   end
 
   # DELETE /games/1
-  # DELETE /games/1.json
   def destroy
     @game.destroy
     respond_to do |format|
       format.html { redirect_to games_url, notice: 'Game was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

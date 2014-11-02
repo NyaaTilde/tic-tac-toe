@@ -122,6 +122,11 @@ Rails comes with a self-contained web server useful for local development.
 If the Rails environment has been set to development, changes to the source
 are automatically reflected by the running server.
 
+If you wish to test the Rails server in a production environment, the rake
+assets need to be compiled first.
+
+    $ rake assets:precompile
+
 A server running in production mode requires an explicit restart.
 
     $ touch tmp/restart.txt

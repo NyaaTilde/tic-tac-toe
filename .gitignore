@@ -11,8 +11,5 @@
 /log/*.log
 /tmp
 
-# Ignore secrets
-/config/secrets.yml
-
 # Ignore precompiled assets
 /public/assets

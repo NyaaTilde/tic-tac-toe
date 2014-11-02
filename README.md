@@ -95,12 +95,9 @@ Session Secret Key
 All session data are signed with a secret key in order to prevent malicious
 attempts at modifying the session data.
 
-    $ cp config/secrets.yml.tpl config/secrets.yml
+Generate a new secret key and set the SECRET_KEY_BASE environment variable.
 
-Generate a new secret key and place it as the value of `secret_key_base` in
-`config/secrets.yml`.
-
-    $ rake secret
+    $ export SECRET_KEY_BASE=$(rake secret)
 
 It is of utmost importance that the keys are never shared with anyone. Do not
 distribute your keys!

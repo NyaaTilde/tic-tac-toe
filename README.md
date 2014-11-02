@@ -85,7 +85,7 @@ when running in a development environment.
 
 Note that the test user must have the CREATEDB permission on the database.
 
-    $ ALTER ROLE __user__ WITH CREATEDB;
+    psql> ALTER ROLE __user__ WITH CREATEDB;
 
 Once the database has been properly set up, the database schema has to be
 loaded and seeded with some initial data.

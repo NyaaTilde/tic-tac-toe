@@ -125,3 +125,37 @@ are automatically reflected by the running server.
 A server running in production mode requires an explicit restart.
 
     $ touch tmp/restart.txt
+
+Deployment
+==========
+
+A production environment of Tic-Tac-Toe is deployed on Heroku. Rake targets are
+provided to ease deployment.
+
+It is advised that deployment is done from your integration server. Make sure
+it is up-to-date and that all tests pass.
+
+    $ git checkout master && git pull
+    $ rake
+
+Deployment to the staging server is only a single command away. The Rake task
+executes all the necessary steps for deployment.
+
+    $ rake deploy_staging
+
+Once the acceptance tests are complete and succesful, you're ready to deploy to
+production.
+
+    $ rake deploy_production
+
+When something goes wrong!
+--------------------------
+
+You've deployed to production and wreaked havoc! Shame on you!
+
+But fear not, you can rollback to a previous known-working deployment.
+Depending on where the havoc was wreaked, execute either of these appropriate
+commands:
+
+    $ rake deploy:staging_rollback
+    $ rake deploy:production_rollback

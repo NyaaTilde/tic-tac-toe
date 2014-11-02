@@ -9,25 +9,34 @@
   %tbody
     %tr
       %td
-        = image_tag Game.image(@game.tl)
+        = link_to game_path(@game, play: 'tl'), :method => :put do
+          - image_tag Game.image(@game.tl)
       %td
-        = image_tag Game.image(@game.tc)
+        = link_to game_path(@game, play: 'tc'), :method => :put do
+          - image_tag Game.image(@game.tc)
       %td
-        = image_tag Game.image(@game.tr)
+        = link_to game_path(@game, play: 'tr'), :method => :put do
+          - image_tag Game.image(@game.tr)
     %tr
       %td
-        = image_tag Game.image(@game.ml)
+        = link_to game_path(@game, play: 'ml'), :method => :put do
+          - image_tag Game.image(@game.ml)
       %td
-        = image_tag Game.image(@game.mc)
+        = link_to game_path(@game, play: 'mc'), :method => :put do
+          - image_tag Game.image(@game.mc)
       %td
-        = image_tag Game.image(@game.mr)
+        = link_to game_path(@game, play: 'mr'), :method => :put do
+          - image_tag Game.image(@game.mr)
     %tr
       %td
-        = image_tag Game.image(@game.bl)
+        = link_to game_path(@game, play: 'bl'), :method => :put do
+          - image_tag Game.image(@game.bl)
       %td
-        = image_tag Game.image(@game.bc)
+        = link_to game_path(@game, play: 'bc'), :method => :put do
+          - image_tag Game.image(@game.bc)
       %td
-        = image_tag Game.image(@game.br)
+        = link_to game_path(@game, play: 'br'), :method => :put do
+          - image_tag Game.image(@game.br)
 
 = link_to 'Edit', edit_game_path(@game)
 \|

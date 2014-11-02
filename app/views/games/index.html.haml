@@ -1,17 +1,22 @@
 %h1 Listing games
 
-%table
-  %tr
-    %th
-    %th
-    %th
-
-  - @games.each do |game|
+%table.table
+  %thead
     %tr
-      %td= link_to 'Show', game
-      %td= link_to 'Edit', edit_game_path(game)
-      %td= link_to 'Destroy', game, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
+      %th Proponent
+      %th Opponent
+      %th Status
+      %th
+      %th
+      %th
+  %tbody
+    - @games.each do |game|
+      %tr
+        %td= game.proponent
+        %td= game.opponent
+        %td= game.status
+        %td= link_to 'Show', game
+        %td= link_to 'Edit', edit_game_path(game)
+        %td= link_to 'Destroy', game, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 = link_to 'New Game', new_game_path

@@ -34,8 +34,8 @@ shell if it does not seem to be working.
 Ruby
 ----
 
-    $ rvm install 2.1
-    $ rvm use 2.1 --default
+    $ rvm install 2.1.4
+    $ rvm use 2.1.4 --default
 
 Contgratulations! You've successfully installed all the necessary system
 dependencies. On to configuration!
@@ -82,6 +82,10 @@ The database URLs are configured as environment variables.
 
 The environment variables TEST_DATABASE_URL and DEV_DATABASE_URL are also used
 when running in a development environment.
+
+Note that the test user must have the CREATEDB permission on the database.
+
+    $ ALTER ROLE __user__ WITH CREATEDB;
 
 Once the database has been properly set up, the database schema has to be
 loaded and seeded with some initial data.

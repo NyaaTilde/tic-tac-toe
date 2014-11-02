@@ -1,5 +1,7 @@
 %h1 Listing games
 
+= link_to 'New Game', new_game_path, type: 'button', class: 'btn btn-primary', style: 'color: white'
+
 %table.table
   %thead
     %tr
@@ -15,8 +17,6 @@
         %td= game.proponent
         %td= game.opponent
         %td= game.status
-        %td= link_to 'Show', game
-        %td= link_to 'Edit', edit_game_path(game)
-        %td= link_to 'Destroy', game, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-= link_to 'New Game', new_game_path
+        %td= link_to 'Show', game, type: 'button', class: 'btn btn-success btn-xs', style: 'color: white'
+        %td= link_to 'Edit', edit_game_path(game), type: 'button', class: 'btn btn-warning btn-xs', style: 'color: white'
+        %td= link_to 'Destroy', game, :method => :delete, :data => { :confirm => 'Are you sure?' }, type: 'button', class: 'btn btn-danger btn-xs', style: 'color: white'

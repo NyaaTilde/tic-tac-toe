@@ -5,6 +5,30 @@
   vs.
   = @game.opponent
 
+%table
+  %tbody
+    %tr
+      %td
+        = image_tag Game.image(@game.tl)
+      %td
+        = image_tag Game.image(@game.tc)
+      %td
+        = image_tag Game.image(@game.tr)
+    %tr
+      %td
+        = image_tag Game.image(@game.ml)
+      %td
+        = image_tag Game.image(@game.mc)
+      %td
+        = image_tag Game.image(@game.mr)
+    %tr
+      %td
+        = image_tag Game.image(@game.bl)
+      %td
+        = image_tag Game.image(@game.bc)
+      %td
+        = image_tag Game.image(@game.br)
+
 = link_to 'Edit', edit_game_path(@game)
 \|
 = link_to 'Back', games_path

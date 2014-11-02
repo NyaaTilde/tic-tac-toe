@@ -12,4 +12,8 @@ class Game < ActiveRecord::Base
   validates :bl, presence: true, inclusion: { in: [0, 1, 2] }
   validates :bc, presence: true, inclusion: { in: [0, 1, 2] }
   validates :br, presence: true, inclusion: { in: [0, 1, 2] }
+
+  def self.image(cell)
+    "#{cell}.png"
+  end
 end

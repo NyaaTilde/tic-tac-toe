@@ -17,10 +17,6 @@ class GamesController < ApplicationController
     @game = Game.new
   end
 
-  # GET /games/1/edit
-  def edit
-  end
-
   # POST /games
   # POST /games.json
   def create
@@ -41,14 +37,26 @@ class GamesController < ApplicationController
   # PATCH/PUT /games/1
   # PATCH/PUT /games/1.json
   def update
-    respond_to do |format|
-      if @game.update(game_params)
-        format.html { redirect_to @game, notice: 'Game was successfully updated.' }
-        format.json { render :show, status: :ok, location: @game }
+    if @game.status == 1
+      if not Game.playable(@game[params[:play]])
+        redirect_to @game, notice: "You can not play there!"
       else
-        format.html { render :edit }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
+        @game.play(params[:play])
+        @game.status = 2 unless @game.endgame.nil?
+        @game.save!
+
+        if @game.endgame.nil?
+          redirect_to @game
+        else
+          winner = "X won!" if @game.endgame == 1
+          winner = "Y won!" if @game.endgame == 2
+          winner = "Draw!" if @game.endgame == 3
+
+          redirect_to @game, notice: "Game has reached an end! #{winner}"
+        end
       end
+    else
+      redirect_to @game, notice: 'You can not play a game that has reached an end!'
     end
   end
 

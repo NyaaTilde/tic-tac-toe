@@ -10,7 +10,6 @@
       %th Status
       %th
       %th
-      %th
   %tbody
     - @games.each do |game|
       %tr
@@ -18,5 +17,4 @@
         %td= game.opponent
         %td= game.status
         %td= link_to 'Show', game, type: 'button', class: 'btn btn-success btn-xs', style: 'color: white'
-        %td= link_to 'Edit', edit_game_path(game), type: 'button', class: 'btn btn-warning btn-xs', style: 'color: white'
         %td= link_to 'Destroy', game, :method => :delete, :data => { :confirm => 'Are you sure?' }, type: 'button', class: 'btn btn-danger btn-xs', style: 'color: white'

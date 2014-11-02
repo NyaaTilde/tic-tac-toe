@@ -32,23 +32,39 @@ class GamesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should update game" do
+      put :update, id: @game, play: :mc
+      assert_redirected_to @game
+      assert_nil flash[:notice]
+
+      put :update, id: @game, play: :tc
+      assert_redirected_to @game
+      assert_nil flash[:notice]
+
+      put :update, id: @game, play: :mr
+      assert_redirected_to @game
+      assert_nil flash[:notice]
+
+      put :update, id: @game, play: :tr
+      assert_redirected_to @game
+      assert_nil flash[:notice]
+
+      # we should not be able to make the same move again
+      put :update, id: @game, play: :mc
+      assert_redirected_to @game
+      assert_equal "You can not play there!", flash[:notice]
+
+      put :update, id: @game, play: :ml
+      assert_redirected_to @game
+      assert_equal "Game has reached an end! X won!", flash[:notice]
+
+      put :update, id: @game, play: :tc
+      assert_redirected_to @game
+      assert_equal "You can not play a game that has reached an end!", flash[:notice]
+  end
+
   test "should show game" do
     get :show, id: @game
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @game
-    assert_response :success
-  end
-
-  test "should update game" do
-    patch :update, id: @game, game: { proponent: "Gulrót" }
-    assert_redirected_to game_path(assigns(:game))
-  end
-
-  test "should fail to update game" do
-    patch :update, id: @game, game: { proponent: nil }
     assert_response :success
   end
 

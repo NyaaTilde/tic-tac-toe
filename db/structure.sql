@@ -39,7 +39,16 @@ CREATE TABLE games (
     updated_at timestamp without time zone NOT NULL,
     proponent character varying NOT NULL,
     opponent character varying NOT NULL,
-    status integer NOT NULL
+    status integer NOT NULL,
+    tl integer DEFAULT 0 NOT NULL,
+    tc integer DEFAULT 0 NOT NULL,
+    tr integer DEFAULT 0 NOT NULL,
+    ml integer DEFAULT 0 NOT NULL,
+    mc integer DEFAULT 0 NOT NULL,
+    mr integer DEFAULT 0 NOT NULL,
+    bl integer DEFAULT 0 NOT NULL,
+    bc integer DEFAULT 0 NOT NULL,
+    br integer DEFAULT 0 NOT NULL
 );
 
 
@@ -100,4 +109,6 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 SET search_path TO "$user",public;
 
 INSERT INTO schema_migrations (version) VALUES ('20141102162253');
+
+INSERT INTO schema_migrations (version) VALUES ('20141102165453');
 

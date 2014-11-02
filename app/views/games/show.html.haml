@@ -1,5 +1,9 @@
 %p#notice= notice
 
+%h2
+  = @game.proponent
+  vs.
+  = @game.opponent
 
 = link_to 'Edit', edit_game_path(@game)
 \|

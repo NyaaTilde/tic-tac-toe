@@ -5,6 +5,12 @@
       %ul
         - @game.errors.full_messages.each do |msg|
           %li= msg
+  .form-group
+    = f.label :proponent
+    = f.text_field :proponent
+  .form-group
+    = f.label :opponent
+    = f.text_field :opponent
 
   .actions
     = f.submit 'Save'

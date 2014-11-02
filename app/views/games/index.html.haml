@@ -15,6 +15,10 @@
       %tr
         %td= game.proponent
         %td= game.opponent
-        %td= game.status
+        %td
+          - if game.status == 1
+            In Progress
+          - else
+            Complete
         %td= link_to 'Show', game, type: 'button', class: 'btn btn-success btn-xs', style: 'color: white'
         %td= link_to 'Destroy', game, :method => :delete, :data => { :confirm => 'Are you sure?' }, type: 'button', class: 'btn btn-danger btn-xs', style: 'color: white'
